@@ -6,18 +6,26 @@ const ApiAccordion = ({spell}) => {
 
   const [spellProperties, setSpellProperties] = useState([]);
   const [isFetched, setIsFetched] = useState(false);
+  const [isExpanded, setIsExpanded] = useState(false);
 
   const fetchSpell = () => {
     console.log('fun');
-    const fetchSpellProperties = async () => {
-      await axios.get('https://www.dnd5eapi.co/api/spells/' + spell.index).then(response => {
-        console.log(response);
-        setSpellProperties(response.data);
-        setIsFetched(true);
-      });
-    }
+    if (!isFetched) {
+      const fetchSpellProperties = async () => {
+        await axios.get('https://www.dnd5eapi.co/api/spells/' + spell.index).then(response => {
+          console.log(response);
+          setSpellProperties(response.data);
+          setIsFetched(true);
+          setIsExpanded(true);
+        });
+      }
 
-    fetchSpellProperties();
+      fetchSpellProperties();
+    } else if (isFetched && isExpanded) {
+      setIsExpanded(false);
+    } else {
+      setIsExpanded(true);
+    }
   }
 
   return(
@@ -28,10 +36,10 @@ const ApiAccordion = ({spell}) => {
           className="ui button green"
           onClick={fetchSpell}
         >
-          Read More
+          { isExpanded ? 'Minimize' : 'Read More' }
         </button>
       </div>
-      <div className="api-accordion--body">
+      <div className={`api-accordion--body ${isExpanded ? 'api-accordion--visible' : 'api-accordion--hidden'}`}>
         { isFetched ? <p>{spellProperties.desc}</p> : null }
       </div>
     </div>
