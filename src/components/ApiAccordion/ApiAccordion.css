@@ -1,0 +1,8 @@
+.api-accordion .api-accordion--header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid lightslategrey;
+  padding: 1REM;
+  border-radius: 3px;
+}
