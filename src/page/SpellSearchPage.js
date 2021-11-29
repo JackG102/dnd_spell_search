@@ -1,9 +1,18 @@
 import React from 'react';
 
-const SpellSearchPage = () => {
+const SpellSearchPage = ({spellIndex, setSpellIndex}) => {
+  console.log(spellIndex);
+  const renderedSpellList = spellIndex.map((spell) => { 
+    console.log(spell.name);
+    return <span>{spell.name}</span>;
+    
+  });
   return(
-    <div class="page--spell-search">
+    <div className="page--spell-search">
       <h1>Spell Search Page</h1>
+      <div className="list--spell-search">
+        {renderedSpellList}
+      </div>
     </div>
   );
 }

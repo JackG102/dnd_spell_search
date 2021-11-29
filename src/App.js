@@ -5,30 +5,34 @@ import axios from 'axios';
 
 const App = () => {
   const [isLoading, setLoading] = useState(true);
-  const [spellIndexData, setSpellIndex] = useState([]);
+  const [spellIndex, setSpellIndex] = useState([]);
   
   useEffect(() => {
-    // For fun, create helper function
-    const finishedLoading = () => {
-      setLoading(false);
+    // For fun, wait a moment so that I can practice conditional rendering.
+    // In reality, the api fetch call is really fast, so the loader only renders for a split second
+    // I want to practice and use my Loader component, hence the timeout function
+    const search = async () => {
+      await axios.get('https://www.dnd5eapi.co/api/spells').then(response => {
+        setTimeout(() => {
+          setSpellIndex(response.data.results);
+          setLoading(false);
+        }, 1000)
+      });
     }
 
-    const search = async () => {
-      const { data } = await axios.get('https://www.dnd5eapi.co/api/spells');
-      // For fun, wait a moment so that I can practice conditional rendering.
-      // In reality, the api fetch call is really fast, so the loader only renders for a split second
-      // I want to practice and use my Loader component, hence the timeout function
-      setTimeout(() => {
-        finishedLoading();
-      }, 1000)
-      console.log(data);
-    }
     search();
   }, []);
 
   return(
     <div className="app-container">
-      {isLoading ? <Loader /> : <SpellSearchPage />}
+      {
+        isLoading 
+        ? <Loader /> 
+        : <SpellSearchPage 
+            spellIndex={spellIndex}
+            setSpellIndex={setSpellIndex}
+          />
+      }
     </div>
   );
 };
