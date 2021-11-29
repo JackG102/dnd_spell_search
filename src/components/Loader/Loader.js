@@ -6,7 +6,7 @@ const Loader = () => {
     <div className="ui segment component--loader">
       <p></p>
       <div className="ui active dimmer">
-        <div className="ui loader"></div>
+        <div className="ui loader text">Loading Spells</div>
       </div>
     </div>
   );

@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import Loader from './components/Loader/Loader';
-
+import SpellSearchPage from './page/SpellSearchPage';
 import axios from 'axios';
 
 const App = () => {
   const [isLoading, setLoading] = useState(true);
-
+  const [spellIndexData, setSpellIndex] = useState([]);
+  
   useEffect(() => {
     // For fun, create helper function
     const finishedLoading = () => {
@@ -27,8 +28,7 @@ const App = () => {
 
   return(
     <div className="app-container">
-      <h1>DnD Search</h1>
-      {isLoading ? <Loader /> : <p>Done loading</p>}
+      {isLoading ? <Loader /> : <SpellSearchPage />}
     </div>
   );
 };
