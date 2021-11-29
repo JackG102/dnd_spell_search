@@ -1,6 +1,7 @@
 import './SpellSearchPage.css';
 import React from 'react';
 import ApiAccordion from '../components/ApiAccordion/ApiAccordion';
+import FilterBar from '../components/FilterBar/FilterBar';
 
 const SpellSearchPage = ({spellIndex, setSpellIndex}) => {
   console.log(spellIndex);
@@ -15,6 +16,10 @@ const SpellSearchPage = ({spellIndex, setSpellIndex}) => {
   return(
     <div className="page--spell-search">
       <h1>Spell Search Page</h1>
+      <div className="filter--spell-search">
+        <FilterBar />
+      </div>
+
       <div className="list--spell-search">
         {renderedSpellList}
       </div>
