@@ -10,7 +10,7 @@ const ApiAccordion = ({spell}) => {
 
   const fetchSpell = () => {
     console.log('fun');
-    if (!isFetched) {
+    if (!isFetched && !isExpanded) {
       const fetchSpellProperties = async () => {
         await axios.get('https://www.dnd5eapi.co/api/spells/' + spell.index).then(response => {
           console.log(response);
