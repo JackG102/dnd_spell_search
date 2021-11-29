@@ -1,3 +1,4 @@
+import './SpellSearchPage.css';
 import React from 'react';
 
 const SpellSearchPage = ({spellIndex, setSpellIndex}) => {
