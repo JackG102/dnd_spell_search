@@ -1,7 +1,7 @@
 .list--spell-search {
   margin: 0 3rem;
   display: grid;
-  grid-template-columns: 33% 33% 33%;
+  grid-template-columns: 50% 50%;
   grid-row-gap: 1rem;
   grid-column-gap: 1rem;
 }
