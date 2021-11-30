@@ -10,10 +10,42 @@ const ApiAccordionBody = ({spellProperties}) => {
     );
   });
 
+  // Magic Classes
+  const renderClasses = spellProperties.classes.map((spellClass) => {
+    return (
+      <span>{spellClass.name} </span>
+    );
+  });
+
+  // Spell Components
+  const renderComponents = spellProperties.components.map((component) => {
+    return (
+      <span>{component} </span>
+    );
+  });
+
   return (
     <>
-      <span><strong>Spell Description:</strong></span>
-      {renderDescription}
+      <div>
+        <strong>Spell Description:</strong>
+        {renderDescription}
+      </div>
+      <div>
+        <strong>Casting Time: </strong>
+        {spellProperties.casting_time}
+      </div>
+      <div>
+        <strong>Classes: </strong>
+        {renderClasses}
+      </div>
+      <div>
+        <strong>Components: </strong>
+        {renderComponents}
+      </div>
+      <div>
+        <strong>Duration: </strong>
+        {spellProperties.duration}
+      </div>
     </>
   );
 }
