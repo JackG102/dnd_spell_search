@@ -55,6 +55,28 @@ const ApiAccordionBody = ({spellProperties}) => {
         <strong>Duration: </strong>
         {spellProperties.duration}
       </div>
+      {
+        spellProperties.damage ?
+          <div>
+            <strong>Damage Type: </strong>
+            {spellProperties.damage.damage_type.name}
+          </div>
+        :
+        null
+      }
+
+      <div>
+        <strong>Concentration: </strong>
+        {spellProperties.concentration.toString()}
+      </div>
+      <div>
+        <strong>Range: </strong>
+        {spellProperties.range}
+      </div>
+      <div>
+        <strong>School: </strong>
+        {spellProperties.school.name}
+      </div>
     </>
   );
 }
