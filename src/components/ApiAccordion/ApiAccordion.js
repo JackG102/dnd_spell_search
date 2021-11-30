@@ -1,6 +1,7 @@
 import './ApiAccordion.css';
 import React, { useState } from 'react';
 import axios from 'axios';
+import ApiAccordionBody from './ApiAccordionBody/ApiAccordionBody';
 
 const ApiAccordion = ({spell}) => {
 
@@ -39,7 +40,7 @@ const ApiAccordion = ({spell}) => {
         </button>
       </div>
       <div className={`api-accordion--body ${isExpanded ? 'api-accordion--visible' : 'api-accordion--hidden'}`}>
-        { isFetched ? <p>{spellProperties.desc}</p> : null }
+        { isFetched ? <ApiAccordionBody spellProperties={spellProperties} /> : null }
       </div>
     </div>
   );
