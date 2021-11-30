@@ -42,6 +42,15 @@ const ApiAccordionBody = ({spellProperties}) => {
         <strong>Components: </strong>
         {renderComponents}
       </div>
+      { 
+      spellProperties.area_of_effect ?
+        <div>
+          <strong>Area of Effect: </strong>
+            {spellProperties.area_of_effect.size}
+            {spellProperties.area_of_effect.type}
+        </div> 
+      : null 
+      }
       <div>
         <strong>Duration: </strong>
         {spellProperties.duration}
