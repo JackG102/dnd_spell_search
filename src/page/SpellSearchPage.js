@@ -9,10 +9,11 @@ const SpellSearchPage = ({spellIndex, setSpellIndex}) => {
   console.log(spellIndex);
 
   const renderedSpellList = spellIndex.filter((spell) => {
-    console.log(filterBarText);
     if (!filterBarText) return true;
     if (spell.name.toLowerCase().includes(filterBarText.toLowerCase())) {
       return true;
+    } else {
+      return false;
     }
   }).map((spell) => { 
     return(
