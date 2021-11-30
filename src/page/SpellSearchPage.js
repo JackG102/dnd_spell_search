@@ -7,7 +7,14 @@ const SpellSearchPage = ({spellIndex, setSpellIndex}) => {
   const [filterBarText, setFilterBarText] = useState('');
 
   console.log(spellIndex);
-  const renderedSpellList = spellIndex.map((spell) => { 
+
+  const renderedSpellList = spellIndex.filter((spell) => {
+    console.log(filterBarText);
+    if (!filterBarText) return true;
+    if (spell.name.toLowerCase().includes(filterBarText.toLowerCase())) {
+      return true;
+    }
+  }).map((spell) => { 
     return(
       <ApiAccordion 
         spell={spell}
@@ -15,6 +22,7 @@ const SpellSearchPage = ({spellIndex, setSpellIndex}) => {
       />
     );
   });
+
   return(
     <div className="page--spell-search">
       <h1>Spell Search Page</h1>
