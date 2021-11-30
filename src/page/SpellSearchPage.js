@@ -1,9 +1,11 @@
 import './SpellSearchPage.css';
-import React from 'react';
+import React, { useState } from 'react';
 import ApiAccordion from '../components/ApiAccordion/ApiAccordion';
 import FilterBar from '../components/FilterBar/FilterBar';
 
 const SpellSearchPage = ({spellIndex, setSpellIndex}) => {
+  const [filterBarText, setFilterBarText] = useState('');
+
   console.log(spellIndex);
   const renderedSpellList = spellIndex.map((spell) => { 
     return(
@@ -17,7 +19,10 @@ const SpellSearchPage = ({spellIndex, setSpellIndex}) => {
     <div className="page--spell-search">
       <h1>Spell Search Page</h1>
       <div className="filter--spell-search">
-        <FilterBar />
+        <FilterBar 
+          filterBarText={filterBarText}
+          setFilterBarText={setFilterBarText}
+        />
       </div>
 
       <div className="list--spell-search">
