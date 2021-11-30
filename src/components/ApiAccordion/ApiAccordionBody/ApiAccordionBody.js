@@ -12,6 +12,7 @@ const ApiAccordionBody = ({spellProperties}) => {
 
   return (
     <>
+      <span><strong>Spell Description:</strong></span>
       {renderDescription}
     </>
   );
