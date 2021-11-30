@@ -74,6 +74,10 @@ const ApiAccordionBody = ({spellProperties}) => {
         {spellProperties.range}
       </div>
       <div>
+        <strong>Level: </strong>
+        {spellProperties.level}
+      </div>
+      <div>
         <strong>School: </strong>
         {spellProperties.school.name}
       </div>
